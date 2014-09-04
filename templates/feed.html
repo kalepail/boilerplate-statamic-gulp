@@ -1,0 +1,32 @@
+<channel>
+
+	<title><![CDATA[{{ _site_name }} {{ folder|title }}]]></title>
+	<link>{{ _site_url }}/{{ folder }}</link>
+	<description>{{ _site_name }} {{ folder|title }}</description>
+	<dc:language>{{ site_language }}</dc:language>
+	<dc:creator>hi@example.com</dc:creator>
+	<dc:rights>Copyright {{ current_date format='Y' }}</dc:rights>
+	<dc:date>{{ current_date format="c" }}</dc:date>
+	<admin:generatorAgent rdf:resource="https://tinyanvil.com/" />
+	<image>
+    <url>{{ _site_url }}/{{ theme_path }}img/favicon.ico</url>
+    <title>Another Awesome Statamic Site</title>
+    <link>https://example.com/blog</link>
+  </image>
+  
+	{{ entries:listing folder="blog" limit="10" }}
+		<item>
+			<title><![CDATA[{{ title }}]]></title>
+			<link>{{ permalink }}</link>
+			<guid>{{ permalink }}</guid>
+			
+			<description>
+			  {{ content|full_urls|cdata }}
+			</description>
+			
+			<dc:subject>{{ tags_list|cdata }}</dc:subject>
+			<dc:date>{{ datestamp format="c" }}</dc:date>
+		</item>
+	{{ /entries:listing }}
+
+</channel>

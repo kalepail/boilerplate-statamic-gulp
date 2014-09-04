@@ -1,0 +1,55 @@
+* {
+  @include box-sizing(border-box);
+}
+body {
+  background: $white;
+  font-family: $font-family;
+  color: $black;
+}
+a {
+  color: $blue;
+}
+abbr {
+  cursor: help;
+}
+area {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+  outline-width: 0;
+}
+img {
+  width: 100%;
+}
+
+// PAGE SPECIFIC RESETS
+// ---------------------------------------------------------
+.marketing {
+  background: #ebf1f4;
+  
+  .header {
+    background-color: $black;
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  .top .logo {
+    margin-bottom: 20px;
+  }
+}
+
+// FOOTER
+// ---------------------------------------------------------
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: rem(13);
+  
+  .twitter-follow-button {
+    margin: 0 0 0 7px;
+    top: 5px;
+    position: relative;
+  }
+}

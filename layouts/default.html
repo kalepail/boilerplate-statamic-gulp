@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{ theme:partial src="head-meta" }}
+    
+    <link rel="stylesheet" href="{{ theme:css src="application.css" }}" />
+    
+    {{ theme:partial src="head-scripts" }}
+  </head>
+	
+	<body class="{{ title|lower }}">
+	  {{ theme:partial src="header" }}
+	  
+	  <section class="content">
+      {{ layout_content }}
+    </section>
+    
+    {{ theme:partial src="footer" }}
+  </body>
+</html>
