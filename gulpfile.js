@@ -1,14 +1,15 @@
 var gulp = require('gulp'),
-    compass = require('gulp-compass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
+    sass = require('gulp-sass'),
+    newer = require('gulp-newer'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
+    scsslint = require('gulp-scsslint'),
     imagemin = require('gulp-imagemin'),
+    minifycss = require('gulp-minify-css'),
+    globbing = require('gulp-css-globbing'),
     livereload = require('gulp-livereload'),
     phpServer = require('php-built-in-server'),
-    scsslint = require('gulp-scsslint'),
-    newer = require('gulp-newer'),
+    autoprefixer = require('gulp-autoprefixer'),
     cmq = require('gulp-combine-media-queries');
 
 
@@ -34,13 +35,8 @@ gulp.task('lint-js', function() {
 // Main style task  
 gulp.task('css', function() {
   return gulp.src('dev/sass/application.scss')
-    .pipe(compass({ // use compass for relative assets and plugins
-      css: 'css',
-      sass: 'dev/sass',
-      font: 'font',
-      image: 'img',
-      require: ['sass-globbing'] // include compass plugins in this array
-    }))
+    .pipe(globbing({extensions: '.scss'}))
+    .pipe(sass())
     .pipe(cmq()) // combine all @media queries into the page base
     .pipe(autoprefixer({cascade: false})) // auto prefix
     .pipe(minifycss()) // minify everything

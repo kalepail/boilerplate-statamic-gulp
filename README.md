@@ -1,0 +1,8 @@
+- Include this theme in your Statamic `_themes` directory. (rename it if you'd like)
+- Change the `_theme: ???` value in `_config/settings.yaml` to your new theme name
+- Open your command line interface and `cd` into the theme directory
+- Run `npm install` (You'll need to have node installed. If you don't, [go here first](http://nodejs.org) and install node)
+- Run `gulp` (This will compile your project, start livereload and open a PHP server instance at `localhost:8000`)
+- Explore the `gulpfile.js` for other individual functions you can run or to customize your build
+- Write all your development code in the `dev` folder. This will auto-compile and be delivered to the rest of your project where Statamic can then access it.
+- Drink cool-aid
